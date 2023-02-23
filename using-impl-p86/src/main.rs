@@ -2,49 +2,40 @@
 
 #[derive(Debug)]
 
-struct File { 
+struct File {
     name: String,
     data: Vec<u8>,
 }
 
 impl File {
     fn new(name: &str) -> File {
-    File {
-        name: String::from(name),
-        data: Vec::new(),
+        File {
+            name: String::from(name),
+            data: Vec::new(),
+        }
     }
 
-    }
-    
-    fn new_with_data(
-        name: &str,
-        data: &Vec<u8>,
-        ) -> File {
+    fn new_with_data(name: &str, data: &Vec<u8>) -> File {
         let mut f = File::new(name);
         f.data = data.clone();
-        return f
+        return f;
     }
 
-
-    fn read(
-        self: &File,
-        save_to: & mut Vec<u8>,
-        ) -> usize {
+    fn read(self: &File, save_to: &mut Vec<u8>) -> usize {
         let mut tmp = self.data.clone();
         let read_length = tmp.len();
         save_to.reserve(read_length);
         save_to.append(&mut tmp);
-        return read_length
+        return read_length;
     }
 }
 
 fn open(f: &mut File) -> bool {
-    return true
+    return true;
 }
 
-
 fn close(f: &mut File) -> bool {
-    return true
+    return true;
 }
 
 fn main() {
@@ -58,16 +49,7 @@ fn main() {
 
     let text = String::from_utf8_lossy(&buffer);
 
-    println!("{:?}",f3);
+    println!("{:?}", f3);
     println!("{} is {} bytes long", &f3.name, f3_length);
     println!("{}", text);
 }
-
-
-
-
-
-
-
-
-
